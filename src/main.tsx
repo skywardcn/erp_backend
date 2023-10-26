@@ -1,6 +1,5 @@
-import ReactDOM from 'react-dom';
 import App from './App';
-import { createElement } from 'react';
+import ReactDOM from 'react-dom';
 
-
-ReactDOM.render(<App />,ReactDOM.render(createElement("div"),document.getElementById("basic")))
+// const leaf=React.createElement("div")
+ReactDOM.render(<App/>,document.getElementById("basic"))
