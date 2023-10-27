@@ -1,10 +1,8 @@
-import App from './App';
-import ReactDOM from 'react-dom';
+import  App  from './App';
 
+import { createRoot } from 'react-dom/client';
 
-window.onload = () => {
-    ReactDOM.render(
-        <App />,
-        document.getElementsByClassName("right-bar")[0]
-    )
-}
+const container= document.getElementById('root')!
+const root=createRoot(container)
+
+root.render(<App/>)

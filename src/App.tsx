@@ -1,19 +1,9 @@
-import { useState } from 'react'
-import './App.css'
-import { Button } from 'antd'
-
-
-
+import Home from './components/home';
 
 const App = () => {
-  const [count, setCount] = useState(1)
-  const inc = () => {
-    setCount(count + 1)
-  }
-
   return (
     <>
-      <Button type="primary" onClick={inc}>{count}</Button>
+    <Home></Home>
     </>
   )
 }
