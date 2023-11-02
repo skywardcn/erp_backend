@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
 
-
 export const useAsync = (asyncFunc: Function) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);

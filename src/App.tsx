@@ -1,14 +1,15 @@
-import Home from './components/home';
-import News from "./components/news"
-import { ConfigProvider } from 'antd'
+import RoutesList from '@/router';
+
+import NavContainer from '@/components/nav'
+
+import { BrowserRouter } from 'react-router-dom'
+
 const App = () => {
   return (
-    <>
-      <ConfigProvider theme={{ token: { colorPrimary: '#eb2f96' } }}>
-        <Home ></Home>
-        <News id={1}></News>
-      </ConfigProvider >
-    </>
+    <BrowserRouter>
+      <NavContainer></NavContainer>
+      <RoutesList></RoutesList>
+    </BrowserRouter>
   )
 }
 

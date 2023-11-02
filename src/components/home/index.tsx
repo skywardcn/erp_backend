@@ -1,10 +1,7 @@
-import { Layout } from "antd";
-import Sider from "antd/es/layout/Sider";
 import React from "react";
-import { Component, ReactNode } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 
 
-const { Header, Content, Footer } = Layout
 
 
 const getSize = () => {
@@ -26,24 +23,20 @@ const useWindowSize = () => {
 }
 
 
-const HomeContainer = () => {
+const HomeView = () => {
   const size = useWindowSize()
 
   if (size == "small") console.log("small"); else console.log("large");
 
   return (
-    <>
-      <Layout>
-        <Sider>Sider</Sider>
-        <Layout>
-          <Header >Header</Header>
-          <Content >Content</Content>
-          <Footer >Footer</Footer>
-        </Layout>
-      </Layout>
-    </>
+    <Container>
+      <Row>
+        <Col lg>111111</Col>
+      </Row>
+    </Container>
   )
+
 
 }
 
-export default HomeContainer
+export default HomeView
