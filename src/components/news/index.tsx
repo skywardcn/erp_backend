@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react"
 import { useAsync } from "@/hooks"
+import { Col, Container, Form, Row } from "react-bootstrap"
 
 
 
@@ -8,7 +9,7 @@ const endPoint = "https://reqres.in/api/"
 const useNews = () => {
 
     const { execute, data, loading, error } = useAsync(async () => {
-        const res = await fetch(`${endPoint}/users`)
+        const res = await fetch(`${endPoint}users`)
         return await res.json()
     })
 
@@ -16,7 +17,7 @@ const useNews = () => {
         execute()
         //用于在组件销毁的时候做一些清理的操作
         // return () => { }
-    }, [id]) //id 变化才重新生成组件
+    }, [execute]) //id 变化才重新生成组件
 
     return { "newsData": data, "newsLoading": loading, "newsError": error }
 }
@@ -26,7 +27,7 @@ const useNews = () => {
 const useNewsCatelogries = () => {
     const { execute, data, loading, error } = useAsync(
         async () => {
-            const res = await fetch(`${endPoint}/catelogries`)
+            const res = await fetch(`${endPoint}users`)
             return await res.json()
         }
     )
@@ -55,24 +56,35 @@ const useFilteredNews = (news, selectedCatalog: string) => {
 
 
 const NewsView = () => {
-    const [selectCategory, setSelectCategory] = useState("")
-    //获取列表
-    const { newsData, newsLoading, newsError } = useNews()
-    //获取分类
-    const { catelogries, catelogriesLoading, catelogriesError } = useNewsCatelogries()
-    // 组合数据
-    const combined = useCombineNews(newsData, catelogries)
-    // 过滤数据
-    const result = useFilteredNews(combined, selectCategory)
+    // const [selectCategory, setSelectCategory] = useState("")
+    // //获取列表
+    // const { newsData, newsLoading, newsError } = useNews()
+    // //获取分类
+    // const { catelogries, catelogriesLoading, catelogriesError } = useNewsCatelogries()
+    // // 组合数据
+    // const combined = useCombineNews(newsData, catelogries)
+    // // 过滤数据
+    // const result = useFilteredNews(combined, selectCategory)
+
+
 
     return (
         <div>
-            <Select>  </Select>
-            {newsLoading ? "loadling" : newsData?.data?.first_name}
+            <Container>
+                <Row className="justify-content-md-center">
+                    <Col lg={2}>
+                        <Form.Select>
+                            <option>请选择分类</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </Form.Select>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     )
 }
-
 
 
 export default NewsView
