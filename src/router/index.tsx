@@ -1,15 +1,18 @@
 import { Routes, Route } from 'react-router-dom'
 
-import HomeView from '@/components/home'
-import NewsView from '@/components/news'
-import AboutView from '@/components/about'
+import HomeView from '@/features/home'
+import NewsView from '@/features/news'
+import AboutView from '@/features/about'
+
+
 
 const RoutesList = () => {
     return (
         <Routes>
-            <Route path="/" element={<HomeView />}></Route>
-            <Route path="/news" element={<NewsView id={1} />}></Route>
-            <Route path="/about" element={<AboutView />}></Route>
+            <Route path="/" Component={HomeView}></Route>
+            <Route path="/news/:page" Component={NewsView}></Route>
+            <Route path="/about" Component={AboutView}></Route>
+
         </Routes >
     )
 }

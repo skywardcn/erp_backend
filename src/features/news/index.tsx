@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo } from "react"
 import { useAsync } from "@/hooks"
 import { Col, Container, Form, Row } from "react-bootstrap"
+import { useParams } from 'react-router-dom'
 
 
 
@@ -55,6 +56,8 @@ const useFilteredNews = (news, selectedCatalog: string) => {
 }
 
 
+
+
 const NewsView = () => {
     // const [selectCategory, setSelectCategory] = useState("")
     // //获取列表
@@ -65,8 +68,8 @@ const NewsView = () => {
     // const combined = useCombineNews(newsData, catelogries)
     // // 过滤数据
     // const result = useFilteredNews(combined, selectCategory)
-
-
+    const { page } = useParams()
+    console.log(`NewsView id:${page}`);
 
     return (
         <div>
@@ -87,4 +90,4 @@ const NewsView = () => {
 }
 
 
-export default NewsView
+export { NewsView as default, useCombineNews, useFilteredNews, useNews, useNewsCatelogries }
